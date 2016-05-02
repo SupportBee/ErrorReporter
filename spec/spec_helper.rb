@@ -1,5 +1,5 @@
 require 'rspec'
-require './lib/ErrorReporter'
+require './lib/error-reporter'
 
 RSpec.configure do |config|
   config.mock_with :flexmock
