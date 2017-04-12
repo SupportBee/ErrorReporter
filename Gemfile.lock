@@ -1,4 +1,5 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
     flexmock (1.3.3)
@@ -25,4 +26,4 @@ DEPENDENCIES
   rspec
 
 BUNDLED WITH
-   1.11.2
+   1.14.6
