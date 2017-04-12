@@ -11,25 +11,12 @@ module SupportBee
 
     def to_a
       tags = Array(@tags)
-      raise_error_if_any_invalid_tag(tags)
       tags = add_severity_tag(tags)
 
       tags
     end
 
     private
-
-    def raise_error_if_any_invalid_tag(tags)
-      raise InvalidTag.new('A tag is invalid') if any_invalid_tag?(tags)
-    end
-
-    def any_invalid_tag?(tags)
-      !(tags - valid_tags).empty?
-    end
-
-    def valid_tags
-      SupportBee::VALID_TAGS
-    end
 
     def add_severity_tag(tags)
       tags << severity_tag

@@ -67,14 +67,6 @@ describe ErrorReporter do
         flexmock(Honeybadger).should_receive(:notify).with(honeybadger_options).once
         ErrorReporter.report(exception, tags: tags)
       end
-
-      context 'a tag is invalid' do
-        it 'raises an invalid tag error' do
-          valid_tags = SupportBee::VALID_TAGS
-          tags = valid_tags + %w(an_invalid_tag)
-          expect { ErrorReporter.report(exception, tags: tags) }.to raise_error(SupportBee::Errors::InvalidTag)
-        end
-      end
     end
 
     describe 'error severities' do
