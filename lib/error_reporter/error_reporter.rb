@@ -1,5 +1,4 @@
 class ErrorReporter
-
   # Send an error to Honeybadger, our error tracking tool
   #
   # @param exception_or_error_message [Exception String] Can either be a ruby exception or an error message string
