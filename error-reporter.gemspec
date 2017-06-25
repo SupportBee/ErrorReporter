@@ -12,5 +12,5 @@ Gem::Specification.new do |s|
   s.homepage      = 'http://rubygems.org/gems/SupportBee-ErrorReporter'
   s.license       = 'MIT'
 
-  s.add_dependency('honeybadger', '2.2.0')
+  s.add_dependency('honeybadger')
 end
