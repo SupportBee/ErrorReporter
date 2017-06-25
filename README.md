@@ -2,4 +2,4 @@
 ErrorReporter
 -----
 
-Class for reporting errors in our applications
+Ruby class for reporting errors in our applications
