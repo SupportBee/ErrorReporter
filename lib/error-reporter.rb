@@ -6,5 +6,3 @@ require 'error_reporter/error_reporter'
 
 class ErrorReporter
 end
-
-Honeybadger.start
