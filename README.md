@@ -20,9 +20,9 @@ and run
 bundle install
 ```
 
-ErrorReporter internally uses the [honeybadger])(https://docs.honeybadger.io/ruby/gem-reference/api.html) gem.
+ErrorReporter internally uses the [honeybadger](https://docs.honeybadger.io/ruby/gem-reference/api.html) gem.
 
-Create a project in our [honeybadger](https://app.honeybadger.io/projects Ping the team in the Dev flow if you haven't yet been invited to our honeybadger
+Create a project in our [honeybadger](https://app.honeybadger.io/projects) Ping the team in the Dev flow if you haven't yet been invited to our honeybadger
 
 Create the file `config/honeybadger.yml` and configure honeybadger
 
