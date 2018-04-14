@@ -28,7 +28,7 @@ class ErrorReporter
   #
   #   Severity is useful for searching errors and configuring alert notifications
   #   in honeybadger.
-  # @raise [Errors::InvalidTag] if an invalid tag is passed
+  # @raise [ArgumentError] if an invalid tag is given
   #
   # @example Report a ruby exception
   #   begin
