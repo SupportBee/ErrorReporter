@@ -2,8 +2,6 @@ module SupportBee
   class TagList
     attr_writer :severity
 
-    include SupportBee::Errors
-
     def initialize(tags, options = {})
       @tags = tags
       @severity = options[:severity]
