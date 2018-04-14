@@ -67,6 +67,40 @@ describe ErrorReporter do
         flexmock(Honeybadger).should_receive(:notify).with(honeybadger_options).once
         ErrorReporter.report(exception, tags: tags)
       end
+
+      describe 'valid tags' do
+        context 'only some tags are allowed' do
+          before(:each) do
+            ErrorReporter.valid_tags = %w(email_importing billing sidekiq)
+          end
+
+          after(:each) do
+            ErrorReporter.valid_tags = nil
+          end
+
+          context 'one of the given tags is not allowed' do
+            it "raises an error" do
+              doing { ErrorReporter.report(exception, tags: %w(smtp sidekiq)) }.should raise_error(ArgumentError)
+            end
+          end
+
+          context 'all given tags are allowed' do
+            it "doesn't raise error" do
+              doing { ErrorReporter.report(exception, tags: %w(sidekiq)) }.should_not raise_error
+            end
+          end
+        end
+
+        context "all tags are allowed" do
+          before(:each) do
+            ErrorReporter.valid_tags.should be_nil
+          end
+
+          it "doesn't raise an error" do
+            doing { ErrorReporter.report(exception, tags: %w(smtp sidekiq)) }.should_not raise_error
+          end
+        end
+      end
     end
 
     describe 'error severities' do

@@ -1,4 +1,16 @@
 class ErrorReporter
+  class << self
+    # A list of valid tag values
+    #
+    # Valid tags are configured in the initializer +config/initializers/error_reporter.rb+.
+    # Valid tags are kept to a minimum. Discuss with the team on flowdock or github
+    # to add a new tag.
+    #
+    # @example
+    #   SupportBee::Utils::ErrorReporter.valid_tags = %w(mail_importing billing)
+    attr_accessor :valid_tags
+  end
+
   # Send an error to Honeybadger, our error tracking tool
   #
   # @param exception_or_error_message [Exception String] Can either be a ruby exception or an error message string
@@ -88,7 +100,7 @@ class ErrorReporter
         error_class: error_message # Honeybadger uses error_class to group similar errors
       }
     end
-    honeybadger_options[:tags] = compute_tags(options)
+    honeybadger_options[:tags] = fetch_tags(options)
     honeybadger_options[:context] = options[:context] if options[:context]
 
     honeybadger_options
@@ -98,7 +110,7 @@ class ErrorReporter
     exception_or_error_message.is_a?(Exception)
   end
 
-  def compute_tags(options)
+  def fetch_tags(options)
     SupportBee::TagList.new(options[:tags], severity: options[:severity]).to_a
   end
 end
