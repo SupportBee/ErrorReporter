@@ -2,7 +2,7 @@
 ErrorReporter
 =====
 
-Ruby class for reporting errors in our applications
+Gem for reporting errors in our Ruby applications
 
 It wraps the the [honeybadger](https://docs.honeybadger.io/ruby/gem-reference/api.html) gem
 
